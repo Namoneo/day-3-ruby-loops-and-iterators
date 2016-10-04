@@ -55,3 +55,28 @@ loop do
     puts "That's not a valid input. Try again."
   end
 end
+
+puts "Would you like to go on shopping? (Y/N)"
+input = gets.chomp.upcase
+
+if input == "N"
+  puts "Thank you for shopping with us!"
+  @products.each do |product|
+    if number == product[:reference_number]
+      shopping_cart << product
+    end
+  end
+  print_progress_bar
+elsif input == "Y"
+  puts "Please fill the next reference number"
+  number = gets.chomp.to_i
+  @products.each do |product|
+    if number == product[:reference_number]
+      shopping_cart << product
+    end
+end
+  puts "SHOPPING CART:"
+  puts "#{shopping_cart}"
+else
+  puts "That's not a valid input. Try again."
+end
