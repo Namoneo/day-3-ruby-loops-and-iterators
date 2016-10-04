@@ -43,13 +43,15 @@ loop do
   elsif answer == "Y"
     puts "Please fill the reference number"
     number = gets.chomp.to_i
-    shopping_cart.push(number)
+    @products.each do |product|
+      if number == product[:reference_number]
+        shopping_cart << product
+      end
+    end
+    puts "SHOPPING CART:"
+    puts "#{shopping_cart}"
     break
   else
     puts "That's not a valid input. Try again."
   end
-end
-
-shopping_cart.each do |product|
-  puts "The chosen #{product} in your basket"
 end
